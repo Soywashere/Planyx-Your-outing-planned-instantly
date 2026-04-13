@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Planyx ✦
+### Your outing, planned instantly.
+
+Planyx is an AI-powered outing planner for Delhi NCR. Select your mood, budget, and time — and get 2–3 complete, realistic outing plans in seconds.
+
+---
+
+## What it does
+
+- Pick your **mood** — Solo, Date, Friends, or Family
+- Pick your **budget** — Under ₹500 to Above ₹2000
+- Pick your **time** — Morning, Evening, Night, or Full Day
+- Get **3 complete plans** instantly, each with a full timeline, real place suggestions, estimated cost, and Google Maps links
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js 14 (App Router) |
+| Styling | Tailwind CSS |
+| Language | TypeScript |
+| AI | Groq API (Llama 3.3 70b) |
+| Deployment | Vercel |
+
+---
+
+## Project Structure
+
+```
+planyx/
+├── app/
+│   ├── api/
+│   │   └── generate/
+│   │       └── route.ts        # AI API route
+│   ├── page.tsx                # Main page
+│   └── layout.tsx              # Root layout
+├── components/
+│   ├── SelectorForm.tsx        # Mood / budget / time selector
+│   └── PlanCard.tsx            # Individual plan display
+├── types/
+│   └── plan.ts                 # TypeScript interfaces
+└── .env.local                  # API keys (not committed)
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/yourusername/planyx.git
+cd planyx
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Set up environment variables
+
+Create a `.env.local` file in the root:
+
+```
+GROQ_API_KEY=your-groq-api-key-here
+```
+
+Get your free Groq API key at [console.groq.com](https://console.groq.com)
+
+### 4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
 
-## Learn More
+| Variable | Description | Required |
+|---|---|---|
+| `GROQ_API_KEY` | Your Groq API key | Yes |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploying to Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm install -g vercel
+vercel
+```
 
-## Deploy on Vercel
+Add `GROQ_API_KEY` as an environment variable in your Vercel project settings.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Or connect your GitHub repo directly at [vercel.com](https://vercel.com) for automatic deployments.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Features
+
+- 3 distinct outing plans per request (Best Pick, Chill Vibe, Hidden Gem)
+- Real places in Delhi NCR with star ratings
+- Each stop links directly to Google Maps
+- Realistic cost estimates matching your budget
+- Fully responsive, mobile-first UI
+- Fast responses powered by Llama 3.3 70b on Groq
+
+---
+
+## Roadmap
+
+- [ ] Add more cities (Mumbai, Bangalore, Hyderabad)
+- [ ] Shareable plan links
+- [ ] Streaming response (plans appear one by one)
+- [ ] Regenerate individual plans
+- [ ] Weather-aware suggestions
+
+---
+
+## License
+
+MIT
