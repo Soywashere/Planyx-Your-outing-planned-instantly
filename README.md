@@ -1,5 +1,6 @@
 # Planyx ✦
 ### Your outing, planned instantly.
+### https://www.planyx.xyz
 
 Planyx is an AI-powered outing planner for Delhi NCR. Select your mood, budget, and time — and get 2–3 complete, realistic outing plans in seconds.
 
